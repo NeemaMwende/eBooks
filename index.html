@@ -251,20 +251,28 @@
         <div class="row justify-content-center my-5">
             <div class="col-lg-6">
                 <form>
-                    <label for="email" class="form-label" required>Email address</label>
-                    
-                    <input type="email" class="form-control" id="email" placeholder="youremail@gmail.com">
+                    <label for="email" class="form-label">Email address</label>
+                    <div class="mb-4 input-group">
+                        <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+                        <input type="email" class="form-control" id="email" placeholder="youremail@gmail.com">
+                    </div>
                     
                     <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter your Name">
+                    <div class="mb-4 input-group">
+                        <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your Name">
+                    </div>
 
                     <label for="subject" class="form-label">What is your question about</label>
-                    <select id="subject" class="form-select">
-                        <option value="pricing" selected>Pricing query</option>
-                        <option value="content">Content query</option>
-                        <option value="other">Other Query</option>
-                    </select>
-
+                    <div class="mb-4 input-group">
+                        <span class="input-group-text"><i class="bi bi-chat-right-dots-fill"></i></span>
+                        <select id="subject" class="form-select">
+                            <option value="pricing" selected>Pricing query</option>
+                            <option value="content">Content query</option>
+                            <option value="other">Other Query</option>
+                        </select>
+                    </div>
+                    
                     <div class="form-floating mb-4 mt-3">
                         <textarea class="form-control" id="query" style="height: 140px"></textarea>
                         <label for="query" class="form-label">Your query...</label>
