@@ -6,6 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
     rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
     crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <title></title>
 </head>
 <body>
@@ -346,6 +347,17 @@
                 enim doloribus exercitationem at. Accusantium rem nesciunt culpa similique ut.</p>
                 <label for="modal-email" class="form-label">Your Email Address</label>
                 <input type="email" class="form-control" id="modal-email" placeholder="e.g angelangel@gmail.com">
+                <div id="success-message" style="display: none;" class="alert">Thank You! Your email has been successfully submitted.</div>
+                <form id="email-form">
+                    <div class="mb-3">
+                        <label for="modal-email" class="form-label">Your Email Address</label>
+                        <input type="email" class="form-control" id="modal-email"
+                            placeholder="e.g angelangel@gmail.com">
+                        <div id="email-error" class="invalid-feedback">
+                            Please enter a valid email address.
+                        </div>
+                    </div>
+                </form>                
             </div>
             <div class="modal-footer"><button class="btn btn-primary">Submit</button></div>
         </div>
@@ -357,10 +369,44 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
 crossorigin="anonymous"></script>
+<link rel="stylesheet" href="script.js">
 
 <script>
     const tooltips = document.querySelectorAll('.tt')
     tooltips.forEach(t => { new bootstrap.tooltip(t) })
+</script>
+
+<script>
+    // Get the form, email input, and success message elements
+    const form = document.getElementById("email-form");
+    const emailInput = document.getElementById("modal-email");
+    const successMessage = document.getElementById("success-message");
+
+    // Function to validate email format
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    // Function to handle form submission
+    function handleSubmit(event) {
+        event.preventDefault(); // Prevent form submission
+
+        const email = emailInput.value.trim();
+
+        if (!isValidEmail(email)) {
+            emailInput.classList.add("is-invalid"); // Add invalid class
+            emailInput.focus(); // Set focus to email input
+            return; // Exit the function
+        }
+
+        // Show success message and hide form
+        successMessage.style.display = "block";
+        form.style.display = "none";
+    }
+
+    // Add event listener to form submission
+    form.addEventListener("submit", handleSubmit);
 </script>
     
 </body>
